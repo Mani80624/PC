@@ -1,5 +1,13 @@
 # Declaración del diccionario de las estaciones de la línea 2 de Guadalajara
-estaciones_D = {'Arcos De Zapopan':0, 'Periférico Belenes': 30, 'Mercado Del Mar':45, 'Zapopan Centro':65, 'Plaza Patria':70, 'Circunvalación Country':80, 'Ávila Camacho':90, 'Normal':100, 'Santuario':120, 'Plaza Universidad': 140, 'Independencia':150, 'Plaza De La Bandera': 160, 'CUCEI': 170, 'Revolución': 180, 'Río Nilo': 190, 'Tlaquepaque Centro': 200, 'Lázaro Cárdenas': 210, 'Central De Autobuses': 220}
+estaciones_D = {'Arcos De Zapopan':0, 'Periférico Belenes': 30, 
+                'Mercado Del Mar':45, 'Zapopan Centro':65, 
+                'Plaza Patria':70, 'Circunvalación Country':80, 
+                'Ávila Camacho':90, 'Normal':100, 'Santuario':120, 
+                'Plaza Universidad': 140, 'Independencia':150, 
+                'Plaza De La Bandera': 160, 'CUCEI': 170, 
+                'Revolución': 180, 'Río Nilo': 190, 
+                'Tlaquepaque Centro': 200, 'Lázaro Cárdenas': 210, 
+                'Central De Autobuses': 220}
 # ------------- CONSTANTES --------------
 # Velocidad promedio del metro en km/h
 VELOCIDAD = 70
@@ -37,13 +45,14 @@ def limpiar(data):
     return data
 
 # ----------------------Programa principal --------------------------------------
+# Recorrer las keys (estaciones) del diccionario
+print("Línea 2:")
+for estacion in estaciones_D.keys():
+    print(estacion)
+print("De las estaciones que aparecen en la línea 2:\n")
+
 while True:
-    # Recorrer las keys (estaciones) del diccionario
-    print("Línea 2:")
-    for estacion in estaciones_D.keys():
-        print(estacion)
     # Estación actual del viajero
-    print("De las estaciones que aparecen en la línea 2:\n")
     actual_estacion = input("¿Cúal es tu estación actual?: ").lower()
 
     # Limpiar la información de estación inicial
@@ -73,20 +82,20 @@ while True:
             tiempo_total = tiempo(distancia, VELOCIDAD) + (TIEMPO_ESPERA*num_estaciones)
 
             # Imprimir los resultados finales
-            print('~'*95)
+            print('~'*130)
 
             print(f'El tiempo total para recorrer la estación actual ({actual_estacion}) a la estación final ({final_estacion}) es de: {tiempo_total} minutos')
 
-            print('~'*95)
+            print('~'*130)
 
             print(f'El costo total del transporte público desde la estación actual ({actual_estacion}) hasta la estación final ({final_estacion}) es: ${costos}')
 
-            print('~'*95)
+            print('~'*130)
 
             pregunta = input("¿Deseas seguir calculando tiempos y costos? (Si o No): ").lower()
             if pregunta == 'no':
                 break
         else:
-            print("La estación de llegada no existe vuelve a ingresarla")
+            print(f'La estación de llegada no existe vuelve a ingresarla y verifica que se encuentre en la lista de la línea 2')
     else:
-        print("La estación actual no existe vuelve a verificar")
+        print("La estación actual no existe vuelve a verificar en la lista de la línea 2")
